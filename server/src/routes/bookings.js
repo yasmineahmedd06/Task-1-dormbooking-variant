@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import express from 'express';
 import {
   getAllBookings,
   getBooking,
@@ -7,8 +7,12 @@ import {
   deleteBooking
 } from '../controllers/bookingController.js';
 
-const router = Router();
+const router = express.Router();
 
-// TODO: wire up the routes described in README.md section 3.
+router.get('/', getAllBookings);
+router.get('/:id', getBooking);
+router.post('/', createBooking);
+router.patch('/:id', updateBooking);
+router.delete('/:id', deleteBooking);
 
 export default router;
